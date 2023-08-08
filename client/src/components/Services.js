@@ -1,10 +1,38 @@
-import React from 'react'
-import styled from 'styled-components'
-import { services } from '../utils/constants'
+import React from 'react';
+import styled from 'styled-components';
+import { services } from '../utils/constants';
 
 const Services = () => {
-  return <h4>services </h4>
-}
+  return (
+    <Wrapper>
+      <div className='section-center'>
+        <article className='header'>
+          <h3>Size özel üretildi</h3>
+          <p>
+            Hayatınıza özel dokunuşlar katmak ve evinizin atmosferini
+            kişiselleştirmek isterseniz, özel tablolar tam da aradığınız şey
+            olabilir. Size özel tasarlanan bu tablolar, benzersiz ve kendinizi
+            ifade etmenizi sağlayacak özgün sanat eserleridir. İster evinizde,
+            ister ofisinizde kullanın, bu özel tablolar sadece sizin için
+            üretilir.
+          </p>
+        </article>
+        <div className='services-center'>
+          {services.map((service) => {
+            const { id, icon, title, text } = service;
+            return (
+              <article key={id} className='service'>
+                <span className='icon'>{icon}</span>
+                <h4>{title}</h4>
+                <p>{text}</p>
+              </article>
+            );
+          })}
+        </div>
+      </div>
+    </Wrapper>
+  );
+};
 
 const Wrapper = styled.section`
   h3,
@@ -68,5 +96,5 @@ const Wrapper = styled.section`
       transform: translateY(5rem);
     }
   }
-`
-export default Services
+`;
+export default Services;
